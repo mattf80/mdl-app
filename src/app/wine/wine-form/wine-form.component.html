@@ -1,0 +1,88 @@
+{{ wine | json }}
+<div class="form-wrapper" *ngIf="wineForm">
+  <form [formGroup]="wineForm" novalidate (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="id">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="name" placeholder="Wine name" formControlName="name">
+        <small id="nameHelp" class="form-text text-muted">Name must be unique</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="vintage" class="col-sm-3 col-form-label">Vintage</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="vintage" placeholder="Vintage" formControlName="vintage">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="country" class="col-sm-3 col-form-label">Country</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="country" formControlName="country" [ngModel]="country">
+          <option value="default">--Select a country--</option>
+          <option *ngFor="let c of countries" [value]="c.id">{{c.name}}</option>
+        </select> 
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colour" class="col-sm-3 col-form-label">Colour</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="colour" formControlName="colour">
+      <option value="Red">Red</option>
+      <option value="White">White</option>
+      <option value="Rose">Rose</option>
+    </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="imageUrl" class="col-sm-3 col-form-label">Link to image</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="shortDesc" class="col-sm-3 col-form-label">Description</label>
+      <div class="col-sm-6">
+        <textarea class="form-control" name="shortDesc" id="shortDesc" rows="3" formControlName="shortDesc"></textarea>
+        <small id="shortDescHelp" class="form-text text-muted">Optional, but useful</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div formArrayName="blend">
+
+        <label class="col-sm-3 col-form-label">Grapes</label>
+        <div class="col-sm-6">
+          <div *ngFor="let blendItem of wineForm.controls.blend.controls; let i = index">
+            <div [formGroupName]="i" class="form-group row">
+              <div class="col-sm-8">
+                <select name="grape" id="grape" class="form-control" formControlName="grape">
+                <option *ngFor="let g of grapes" [value]="g">{{g.name}}</option>
+              </select>
+              </div>
+              <div class="col-sm-3">
+                <input type="number" placeholder="%" class="form-control" name="percentage" formControlName="percentage">
+              </div>
+              <div class="col-sm-1">
+                <div *ngIf="wineForm.controls.blend.controls.length > 1">
+                  <button class="btn btn-sm btn-danger" (click)="removeGrape(i)"><i class="fa fa-remove"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-sm btn-success" (click)="addGrape()" style="cursor: pointer">Add</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row offset-sm-3 col-sm-6">
+      <button type="submit" class="btn btn-primary" [disabled]="!wineForm.valid">Submit</button>
+      <button type="button" class="btn btn-secondary">Clear form</button>
+    </div>
+  </form>
+</div>

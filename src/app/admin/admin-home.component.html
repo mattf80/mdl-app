@@ -1,0 +1,32 @@
+<p>
+  admin-home works!
+</p>
+
+
+
+<form novalidate [formGroup]="grapeForm">
+
+  <label for="name">Name</label>
+  <input type="text" formControlName="name">
+
+  <div formArrayName="hobbies">
+    <div *ngFor="let hobby of grapeForm.controls.hobbies.controls; let i = index">
+      <div [formGroupName]="i">
+        <div>
+          <label for="name">Hobby Name</label>
+          <input type="text" formControlName="name">
+        </div>
+        <div>
+          <label for="rating">Hobby Rating</label>
+          <input type="text" formControlName="rating">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-default">button</button>
+
+</form>

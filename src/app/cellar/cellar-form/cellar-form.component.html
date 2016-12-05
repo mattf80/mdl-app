@@ -1,0 +1,56 @@
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Manage stock
+</button>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add wine to cellar</h4>
+      </div>
+      <div class="modal-body">
+
+        <form id="cellar-item-add" (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+          <div class="form-group">
+            <label for="wine">Wine</label>
+            <select class="form-control" name="wine" ngModel required>
+              <option *ngFor="let wine of wines" [ngValue]="wine">{{wine.name}}</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" id="quantity" placeholder="Quantity" ngModel name="quantity">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="unit">Unit</label>
+                <select class="form-control" name="unit" ngModel>
+                <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
+              </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" type="submit" *ngIf="isAdd" [disabled]="!form.valid">Add</button>
+            <button type="button" class="btn btn-primary" type="submit" *ngIf="!isAdd" [disabled]="!form.valid">Save changes</button>
+            <button type="button" class="btn btn-danger" type="button" *ngIf="!isAdd">Delete</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

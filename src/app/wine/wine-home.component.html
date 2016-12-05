@@ -1,0 +1,16 @@
+<p>Wine Home Component</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-4">
+      <button class="btn btn-outline-primary" [routerLink]="['./new']"><i class="fa fa-plus-circle fa-2x"></i></button>
+          <button class="btn btn-outline-primary" [routerLink]="['./1/edit']"><i class="fa fa-edit fa-2x"></i></button>
+             <button class="btn btn-outline-danger" [routerLink]="['./2/edit']"><i class="fa fa-edit fa-2x"></i></button>
+ 
+    </div>
+    <div class="col-sm-8">
+      <input class="form-control" type="text" placeholder="Search your wines...">
+      <app-wine-list></app-wine-list>
+    </div>
+    
+  </div>
+</div>

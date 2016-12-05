@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-4">
+    <app-cellar-form></app-cellar-form>
+  </div>
+  <div class="col-sm-8">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of items">
+        {{item.item.wine.name}} - {{item.item.wine.country.name}} - {{item.item.quantity}} - {{item.item.unit}}
+      </li>
+    </ul>
+  </div>
+</div>

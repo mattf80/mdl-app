@@ -1,0 +1,26 @@
+    <div formArrayName="grapes">
+      <div *ngFor="let grape of wineForm.controls.grapes.controls; let i = index">
+        <div [formGroupName]="i">
+          <div class="form-group row">
+            <label for="grapes" class="col-sm-3 col-form-label">Grapes</label>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <select name="grape" id="grape" formControlName="grape">
+                  <option [ngValue]="grape">{{grape.name}}</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input class="form-control" type="number" placeholder="%" formControlName="percentage">
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <div class="form-group">
+                <button type="button" class="btn btn-danger">X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
