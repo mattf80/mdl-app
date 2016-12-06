@@ -33,6 +33,10 @@ const wineRoutes: Routes = [
       {
         path: ':id/edit',
         component: WineFormComponent
+      },
+      {
+        path: ':id/detail',
+        component: WineDetailComponent
       }
     ]
   }

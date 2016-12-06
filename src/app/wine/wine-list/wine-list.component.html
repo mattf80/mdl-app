@@ -13,5 +13,8 @@
     <ul *ngIf="item.wine.blend">
       <li *ngFor="let b of item.wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
     </ul>
+    <a [routerLink]="['.', item.id, 'edit']">Edit</a>
+    <a [routerLink]="['.', item.id, 'detail']">Detail</a>
+  </li>
 
 </ul>

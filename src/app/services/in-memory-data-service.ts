@@ -14,10 +14,9 @@ export class InMemoryDataService implements InMemoryDbService {
         }
       },
       {
-        id: 2, wine: { name: "Margaux", vintage: 1982, colour: "Red", shortDesc: "1st growth from the south", country: { id: 1, name: "France" }, imageUrl: "",
+        id: 2, wine: { name: "Ramey Russian River Valley Chardonnay", vintage: 2005, colour: "White", shortDesc: "Entry level wine from one of the top Californian producers", country: { id: 5, name: "USA" }, imageUrl: "",
         blend: [
-          { grape: { id: 1, name: "Cabernet" }, percentage: 65 },
-          { grape: { id: 2, name: "Merlot" }, percentage: 35 }
+          { grape: { id: 3, name: "Chardonnay" }, percentage:100 }
         ]
       }}
     ];

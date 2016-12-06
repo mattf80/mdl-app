@@ -1,3 +1,7 @@
+<div>
+  <button class="btn btn-secondary" [routerLink]="['/wine']">Back to wine list</button>
+</div>
+
 <div class="form-wrapper" *ngIf="wineForm">
   <form [formGroup]="wineForm" novalidate (ngSubmit)="onSubmit()">
     <div class="form-group row">
@@ -85,5 +89,3 @@
     </div>
   </form>
 </div>
-
-{{grapes | json }}
