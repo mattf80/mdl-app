@@ -1,7 +1,5 @@
-{{ wine | json }}
 <div class="form-wrapper" *ngIf="wineForm">
   <form [formGroup]="wineForm" novalidate (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="id">
     <div class="form-group row">
       <label class="col-sm-3 col-form-label">Name</label>
       <div class="col-sm-6">
@@ -19,11 +17,12 @@
     <div class="form-group row">
       <label for="country" class="col-sm-3 col-form-label">Country</label>
       <div class="col-sm-6">
-        <select class="form-control" id="country" formControlName="country" [ngModel]="country">
+        <select class="form-control" id="country" formControlName="country">
           <option value="default">--Select a country--</option>
-          <option *ngFor="let c of countries" [value]="c.id">{{c.name}}</option>
+          <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
         </select> 
       </div>
+
     </div>
     <div class="form-group row">
       <label for="colour" class="col-sm-3 col-form-label">Colour</label>
@@ -56,10 +55,10 @@
         <label class="col-sm-3 col-form-label">Grapes</label>
         <div class="col-sm-6">
           <div *ngFor="let blendItem of wineForm.controls.blend.controls; let i = index">
-            <div [formGroupName]="i" class="form-group row">
+            <div formGroupName="{{i}}" class="form-group row">
               <div class="col-sm-8">
-                <select name="grape" id="grape" class="form-control" formControlName="grape">
-                <option *ngFor="let g of grapes" [value]="g">{{g.name}}</option>
+                <select id="grape" class="form-control" formControlName="grape">
+                <option *ngFor="let g of grapes" [ngValue]="g">{{g.name}}</option>
               </select>
               </div>
               <div class="col-sm-3">
@@ -82,7 +81,9 @@
 
     <div class="form-group row offset-sm-3 col-sm-6">
       <button type="submit" class="btn btn-primary" [disabled]="!wineForm.valid">Submit</button>
-      <button type="button" class="btn btn-secondary">Clear form</button>
+      <button type="button" class="btn btn-secondary" (click)="clearForm()">Clear form</button>
     </div>
   </form>
 </div>
+
+{{grapes | json }}

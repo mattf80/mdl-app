@@ -24,7 +24,10 @@ export class WineListComponent implements OnInit {
 
   getWines() {
     return  this.wineService.getWines()
-    .subscribe(wines => this.wines = wines);
+    .subscribe(data => {
+      this.wines = data;
+      console.log(this.wines);
+    });
   }
     getGrapes() {
     return  this.wineService.getGrapes()

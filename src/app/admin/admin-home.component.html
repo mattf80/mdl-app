@@ -24,9 +24,23 @@
       </div>
 
     </div>
+
+  </div>
+  <div formArrayName="grapeCountries">
+    <div *ngFor="let item of grapeForm.controls.grapeCountries.controls; let i = index">
+      <div formGroupName="{{i}}">
+        <select formControlName="country">
+          <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+        </select>
+        <input type="text" formControlName="countryName">
+      </div>
+    </div>
   </div>
 
 
   <button type="submit" class="btn btn-default">button</button>
 
 </form>
+
+{{countries | json}}
+{{grapeForm.value | json}}

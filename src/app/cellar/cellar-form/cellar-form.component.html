@@ -18,7 +18,7 @@
           <div class="form-group">
             <label for="wine">Wine</label>
             <select class="form-control" name="wine" ngModel required>
-              <option *ngFor="let wine of wines" [ngValue]="wine">{{wine.name}}</option>
+              <option *ngFor="let item of wines" [ngValue]="item">{{item.wine.name}}</option>
             </select>
           </div>
 

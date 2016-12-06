@@ -1,17 +1,17 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let wine of wines">
-    {{wine.name}} - {{wine.country.name}}
+  <li class="list-group-item" *ngFor="let item of wines">
+    {{item.wine.name}} - {{item.wine.country.name}}
     <div>
-      <select name="grape" [(ngModel)]="wine.blend.grape" #grape="ngModel">
+      <select name="grape" [(ngModel)]="item.wine.blend.grape" #grape="ngModel">
         <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.name}}</option>
       </select>
-      <input type="text" [(ngModel)]="wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
+      <input type="text" [(ngModel)]="item.wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
       <button (click)="addGrape(wine, grape.value, percentage.value)">
     Add
   </button>
     </div>
-    <ul *ngIf="wine.grapes">
-      <li *ngFor="let b of wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
+    <ul *ngIf="item.wine.blend">
+      <li *ngFor="let b of item.wine.blend">{{b.grape.name}} - {{b.percentage}}</li>
     </ul>
 
 </ul>

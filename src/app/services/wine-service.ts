@@ -56,10 +56,9 @@ export class WineService {
   }
 
   addWine(wine: Wine): Observable<Wine> {
-    console.log(wine);
     return this.http
       .post(this.baseUrl + 'wines', JSON.stringify({ wine }), { headers: this.headers })
-      .map(res => res.json().data.model as Wine)
+      .map(res => res.json().data as Wine)
       .catch(this.handleError);
   }
 
@@ -69,6 +68,13 @@ export class WineService {
       .put(url, JSON.stringify(newWine), { headers: this.headers })
       .map(res => res.json().data.model as Wine)
       .catch(this.handleError);
+  }
+
+  getReferenceData() {
+    return Observable.forkJoin(
+      this.http.get(this.baseUrl + 'grapes').map(response => response.json().data as Grape[]),
+      this.http.get(this.baseUrl + 'countries').map(response => response.json().data as Country[])
+    );
   }
 
   private handleError(error: any): Promise<any> {

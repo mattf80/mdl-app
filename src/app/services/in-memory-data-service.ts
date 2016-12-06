@@ -5,12 +5,25 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let wines = [
       {
-        id: 1, name: "Latour", vintage: 1995, colour: "Red", shortDesc: "Some French plonk or summat", country: { id: 1, name: "France" }, imageUrl: "",
-        blend: [
-          { grape: { id: 1, name: "Cabernet" }, percentage: 80 },
-          { grape: { id: 2, name: "Merlot" }, percentage: 20 }
-        ]
+        id: 1, wine: {
+          name: "Latour", vintage: 1995, colour: "Red", shortDesc: "Some French plonk or summat", country: { id: 1, name: "France" }, imageUrl: "",
+          blend: [
+            { grape: { id: 1, name: "Cabernet" }, percentage: 80 },
+            { grape: { id: 2, name: "Merlot" }, percentage: 20 }
+          ]
+        }
       },
+      {
+        id: 2, wine: { name: "Margaux", vintage: 1982, colour: "Red", shortDesc: "1st growth from the south", country: { id: 1, name: "France" }, imageUrl: "",
+        blend: [
+          { grape: { id: 1, name: "Cabernet" }, percentage: 65 },
+          { grape: { id: 2, name: "Merlot" }, percentage: 35 }
+        ]
+      }}
+    ];
+
+    /*
+    ,
       {
         id: 2, name: "Margaux", vintage: 1982, colour: "Red", shortDesc: "1st growth from the south", country: { id: 1, name: "France" }, imageUrl:"",
         blend: [
@@ -37,7 +50,7 @@ export class InMemoryDataService implements InMemoryDbService {
           { grape: { id: 2, name: "Merlot" }, percentage: 20 }
         ]
       }
-    ];
+      */
 
     let countries = [
       { id: 1, name: "France" },
