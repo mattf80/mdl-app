@@ -1,3 +1,4 @@
+import { ReferenceDataManagerComponent } from './reference-data-manager/reference-data-manager.component';
 import { AdminHomeComponent } from './admin-home.component';
 import { AdminComponent } from './admin.component';
 
@@ -14,6 +15,10 @@ const adminRoutes: Routes = [
       {
         path: '',
         component: AdminHomeComponent
+      },
+      {
+        path: 'manage',
+        component: ReferenceDataManagerComponent
       }
     ]
   }

@@ -1,6 +1,8 @@
 import { Grape, Blend } from './../../models/grape';
 
 import { Wine } from './../../models/wine';
+import { Colour } from './../../models/enums';
+
 import { Country } from './../../models/country';
 import { WineService } from './../../services/wine-service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -49,7 +51,7 @@ export class WineFormComponent implements OnInit, OnDestroy {
             });
         } else {
           this.isNew = true;
-          this.wine = new Wine(null,{name: '', vintage: null, colour: '', shortDesc: '', imageUrl:'', country:null, blend:[]})
+          this.wine = new Wine(null,{name: '', vintage: null, colour: null, shortDesc: '', imageUrl:'', country:null, region:null, blend:[]})
           this.getGrapesAndCountries();
         }
         this.initForm();

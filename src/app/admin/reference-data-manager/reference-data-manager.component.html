@@ -1,0 +1,24 @@
+<div class="col-sm-3">
+  <nav class="nav nav-pills nav-stacked">
+    <a class="nav-link active" (click)="getGrapes()">Grapes</a>
+    <a class="nav-link" (click)="getCountries()">Countries</a>
+  </nav>
+</div>
+
+<div class="col-sm-6">  
+  <form novalidate (ngSubmit)="addItem(form)" #form="ngForm">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Add new..." [(ngModel)]="name" name="name">
+        </div>
+
+      </div>
+      <div class="col-sm-4">        
+        <button type="button" class="btn btn-success btn-sm" type="submit">Add</button>        
+      </div>
+    </div>
+  </form>
+</div>
+
+<data-list [items]="items"></data-list>

@@ -3,7 +3,7 @@
     {{item.wine.name}} - {{item.wine.country.name}}
     <div>
       <select name="grape" [(ngModel)]="item.wine.blend.grape" #grape="ngModel">
-        <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.name}}</option>
+        <option *ngFor="let grape of grapes" [ngValue]="grape">{{grape.item.name}}</option>
       </select>
       <input type="text" [(ngModel)]="item.wine.blend.percentage" name="grapePercentage" #percentage="ngModel">
       <button (click)="addGrape(wine, grape.value, percentage.value)">

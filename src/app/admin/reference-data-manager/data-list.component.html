@@ -1,0 +1,12 @@
+<div class="col-sm-6">
+  <div class="form-group">
+    <input type="text" class="form-control" id="filter" placeholder="Filter list.." [(ngModel)]="userFilter">
+  </div>
+  <p>Filtered by: {{userFilter}}</p>
+
+  
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of items | listFilter:userFilter">{{item.item.name}}</li>
+  </ul>
+</div>

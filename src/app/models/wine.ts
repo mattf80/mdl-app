@@ -1,26 +1,19 @@
 import { Grape, Blend } from './grape';
-import { Country } from './country';
+import { Country, Region } from './country';
+import { Colour } from './enums';
 
 export class Wine {
-      id: number;
-      wine:{
-    name: string;
-    vintage: number;
-    colour: string;
-    shortDesc: string;
-    imageUrl: string;
-    country: Country;
-    blend: Blend[];
-      }
+
   constructor(
-    id: number,
-    wine: {
+    public id: number,
+    public wine: {
     name: string,
     vintage: number,
-    colour: string,
+    colour: Colour,
     shortDesc: string,
     imageUrl: string,
     country: Country,
+    region: Region,
     blend: Blend[]
     })
     { }

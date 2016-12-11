@@ -1,4 +1,6 @@
-export class Grape {
+import { ReferenceItem  } from './../interfaces/reference-item';
+
+export class Grape implements ReferenceItem {
   id: number;
   name: string;
 }
